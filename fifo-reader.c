@@ -16,7 +16,7 @@ static void print_buf(char *buf, int size)
     printf("====Input Data====\n");
     for(i=0; i<size; i++) {
         printf("%02X ", buf[i]);
-        if(0 != i && 0 == ((i+1) % 4))
+        if(0 != i && 0 == ((i+1) % 16))
             printf("\n");
     }
     printf("\n");
