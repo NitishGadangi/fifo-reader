@@ -1,0 +1,4 @@
+This project faciliates FIFO communication testing.
+
+FIFO synchronous communication requires a FIFO reader in place to consume the
+data.
