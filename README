@@ -2,3 +2,10 @@ This project faciliates FIFO communication testing.
 
 FIFO synchronous communication requires a FIFO reader in place to consume the
 data.
+
+Usage:
+------
+
+./fifo-reader /path/to/the/fifo
+
+The default fifo path is:  /tmp/fifo
