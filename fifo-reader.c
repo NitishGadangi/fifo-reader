@@ -1,6 +1,3 @@
-/*
- * This test program tests communication channel for SUZI.
- */
 #include <fcntl.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -30,7 +27,7 @@ int main( int argc, char *argv[])
     char buf[MSG_SZ];
     char fifo_path[64];
 
-    /* getting fifo_path */
+    /* getting fifo_path from command line input */
     memset(fifo_path,0,sizeof(fifo_path));
     if ( 2 == argc ) {
         if (strlen(argv[1]) >= 64)
