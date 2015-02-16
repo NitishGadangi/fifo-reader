@@ -13,13 +13,14 @@ static void print_buf(char *buf, int size)
 {
     int i;
 
-    printf("====Input Data====\n");
+    printf("==== FIFO Data As Raw Hex ====\n");
     for(i=0; i<size; i++) {
         printf("%02X ", buf[i]);
         if(0 != i && 0 == ((i+1) % 16))
             printf("\n");
     }
-    printf("\n");
+    printf("==== FIFO Data As String ====\n");
+    printf("%s\n\n", buf);
 }
 
 int main( int argc, char *argv[])
@@ -47,12 +48,11 @@ int main( int argc, char *argv[])
         return 1;
     }
 
+    printf("Reader_thread: Reading FIFO: %s...\n", fifo_path);
     while(1) {
         memset((void*)buf, 0, sizeof(buf));
-        printf("Reader_thread: Reading FIFO: %s...\n", fifo_path);
-        rd_cnt = read(fifo,(void*)buf,MSG_SZ);
+        rd_cnt = read(fifo,buf,MSG_SZ);
         if(rd_cnt>0) {
-            printf("Reader_thread: FIFO Contents:\n");
             print_buf(buf, rd_cnt);
         } else {
             printf("FIFO writer is gone, waiting...\n");
